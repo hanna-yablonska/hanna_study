@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>List to do</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="topnav">
+                <a href="home" class="active">TO DO</a>
+                <div id="myLinks">
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                    <a href="javascript:void(0)" class="icon" onclick="myFunction()"></a>
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                <script>
+                    function myFunction() {
+                        const links = document.getElementById("myLinks");
+                        if(links.style.display === "block"){
+                            links.style.display = "none";
+                        } 
+                        else {
+                            links.style.display = "block"
+                        }
+                    }
+                </script>
+                
+            </div>
+            <div class="header">
+                 
+            </div>
+
+            <div class="new-todo">
+                <form id="todo">
+                    <input type="text" name="newtodo" id="newtodo" placeholder="New task">
+                    <button type="submit">+</button>
+                </form>
+
+                <div class="todo-app">
+                    <h2>To do list </h2>  
+                    <div class="row">
+                        <input type="text" id="input-box" placeholder="Add your task">
+                        <button>ADD</button>
+                    </div>
+                    <ul id="list-container">
+                        <form action="">
+                            
+                                <input id="check" type="checkbox">
+                                <label for="task" id="task">Task 1</label>
+                                <input id="check" type="checkbox">
+                                <label for="task" id="task">Task 2</label>
+                                <input id="check" type="checkbox">
+                                <label for="task" id="task">Task 3</label>
+                        </form>
+                        
+                    </ul>
+    
+                </div>
+
+            </div> 
+        </header>
+        
+    </div>
+    <script src="App.js"></script>
+</body>
+</html>
