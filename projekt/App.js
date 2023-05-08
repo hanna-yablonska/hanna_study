@@ -9,9 +9,6 @@ export function App() {
         title='Create a new list'
         color="#daa520"       // гірчично жовтий
         onPress={() => Alert.alert("Button press")}
-<<<<<<< HEAD
-
-        rend
       />
 
     </View>
@@ -26,20 +23,11 @@ class MenuBar extends React.Component {
         <Menu>
           <a id='about' className='menu-item' href='/'>About</a>
           <a id='contact' className='menu-item' href='/'>Contact</a>
-          <a id='about' className='menu-item' href='/'>About</a>
-
         </Menu>
-    )
+    );
   }
 }
-=======
-      />
-
-    </View>
-  );
-
-}
->>>>>>> 37883eff1c08067b5b670bb1df86c929018613e5
+const inputBox = document.getElementById('input-box')
 const style = StyleSheet.create({
   container:{
     flex: 1,
