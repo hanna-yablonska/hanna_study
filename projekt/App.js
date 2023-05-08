@@ -9,6 +9,7 @@ export function App() {
         title='Create a new list'
         color="#daa520"       // гірчично жовтий
         onPress={() => Alert.alert("Button press")}
+<<<<<<< HEAD
 
         rend
       />
@@ -31,6 +32,14 @@ class MenuBar extends React.Component {
     )
   }
 }
+=======
+      />
+
+    </View>
+  );
+
+}
+>>>>>>> 37883eff1c08067b5b670bb1df86c929018613e5
 const style = StyleSheet.create({
   container:{
     flex: 1,
