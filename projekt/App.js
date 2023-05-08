@@ -1,53 +1,31 @@
+import React from 'react';
+import {Text, View, StyleSheet, Button, Alert} from 'react-native';
 
-import React, {useState} from "react";
-
-import { StyleSheet, Text, TextInput, View } from "react-native";
-
-function App() {
-  const [text, useText] = useState('')
-
-  const [lista, useLista] = useState(['First text', 'Second text', 'Third text'])
-
-
+export function App() {
   return(
-<View>
-  <Text style ={styles.text} > {text}</Text>
-  <TextInput style= {styles.jakisinput} onChangeText={(e) => {useText(e)}}/>
-  <View style = {styles.lista}>
-    {lista.map((text, idx) => {
-      return (<Text key={idx} style={styles.element_listy}> {text}</Text>)
-    })}
-  </View>
+    <View style = {style.container}>
+      <Text>My new App: "To do list"</Text>
+      <Button
+        title='Create a new list'
+        color="#daa520"       // гірчично жовтий
+        onPress={() => Alert.alert("Button press")}
+      />
 
-</View>
+    </View>
+  );
 
-
-  )
 }
-
-
-
-const styles = StyleSheet.create({
-  text: {
-    color: "green",
-    fontSize: 40,
-    padding: 30
-    
+const style = StyleSheet.create({
+  container:{
+    flex: 1,
+    backgroundColor: '#f0e68c',    //ніжно-жовтий
+    alignItems: 'center',
+    justifyContent: 'center'
   },
-  jakisinput: {
-    color: "red",
-    width: 20
-
-  },
-  element_listy: {
-    color: 'blue',
-    fontSize: 30
-    
+  button: {
+    flexDirection: 'row'
 
   }
-
 })
-
-
 
 export default App;
