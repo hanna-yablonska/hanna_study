@@ -5,19 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>List to do</title>
 </head>
 <body>
     <div class="container">
         <header>
             <div class="topnav">
-                <a href="home" class="active">TO DO</a>
+                
+                <a href="#" class="active">
+                    <img src="clipboard-list-solid.svg" class="logo" alt="logo" id="logo">
+                </a>
+                <script>
+                    document.getElementById("logo").onclick = function(){
+                        location.href = "index.html";
+                    }
+                </script>
                 <div id="myLinks">
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#about" id="about">About</a>
+                    <a href="#contact"  id="contact">Contact</a>
                 </div>
-                    <a href="javascript:void(0)" class="icon" onclick="myFunction()"></a>
-                    <i class="fas fa-bars" aria-hidden="true"></i>
+                <script type="text/javascript">
+                    document.getElementById("about").onclick = function(){
+                        location.href = "about.html";
+                    };
+
+                </script>
+
+                <script type="text/javascript">
+                    document.getElementById("contact").onclick = function(){
+                        location.href = "contact.html";
+                    };
+
+                </script>
+
+
+
+                    <!-- <div class="about">
+                        <h2>About author:</h2>
+                        <p>This is my first application written in JavaScript.<br>
+                            My social media:
+                        </p>
+                    </div>
+
+                    <div class="contact">
+                        <h2>Contact with me</h2>
+
+                    </div> -->
+
+                
+                    <a href="javascript:void(0)" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </a>
+                    
                 <script>
                     function myFunction() {
                         const links = document.getElementById("myLinks");
@@ -36,36 +77,52 @@
             </div>
 
             <div class="new-todo">
-                <form id="todo">
-                    <input type="text" name="newtodo" id="newtodo" placeholder="New task">
-                    <button type="submit">+</button>
-                </form>
+                
 
                 <div class="todo-app">
-                    <h2>To do list </h2>  
+                    <h2>To do list<img src="img.ico"  alt="image"> </h2>  
                     <div class="row">
-                        <input type="text" id="input-box" placeholder="Add your task">
-                        <button onclick="">ADD</button>   
+                        <input type="text" id="input-box" name="input-box" placeholder="Add your task">
+                        <button id="add_button" onclick="addTask()">ADD</button>   
                     </div>
-                    <ul id="list-container">
-                        <form action="">
-                            
+                    <script>
+                        const input = document.getElementById("input-box");
+                        input.addEventListener("keypress", function(event) {
+                            if (event.key === "Enter"){
+                                event.preventDefault();
+                            document.getElementById("add_button").click();
+                             }
+                        })
+                    </script>
+                    
+                       
+                            <!-- <div>
                                 <input id="check" type="checkbox">
                                 <label for="task" id="task">Task 1</label>
+                            </div>
+                            <div>
                                 <input id="check" type="checkbox">
                                 <label for="task" id="task">Task 2</label>
+                            </div>
+                            <div>
                                 <input id="check" type="checkbox">
                                 <label for="task" id="task">Task 3</label>
-                        </form>
-                        
-                    </ul>
-    
+                            </div> -->
+
+                            <ul id="list-container">
+                                <!-- <li class="checked">TASK 1</li>
+                                <li>TASK 2</li>
+                                <li>TASK 3</li> -->
+                            </ul>
+
                 </div>
 
             </div> 
         </header>
         
     </div>
-    <script src="App.js"></script>
+    <script type="text/javascript" src="App.js"></script>
 </body>
+
+
 </html>

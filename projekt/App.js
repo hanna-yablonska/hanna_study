@@ -1,44 +1,58 @@
-import React from 'react';
-import {Text, View, StyleSheet, Button, Alert} from 'react-native';
+ 
 
-export function App() {
-  return(
-    <View style = {style.container}>
-      <Text>My new App: "To do list"</Text>
-      <Button
-        title='Create a new list'
-        color="#daa520"       // гірчично жовтий
-        onPress={() => Alert.alert("Button press")}
-      />
-
-    </View>
+const inputBox = document.getElementById("input-box");
+const listContainer = document.getElementById("list-container");
 
 
-  );
+function addTask(){
+  if(inputBox.value === '') {
+    alert("Your must write something")
+  }
+  else {
+    let li = document.createElement('li');
+    li.innerHTML = inputBox.value;
+    listContainer.appendChild(li);
+    let span = document.createElement("span");
+    span.innerHTML = "\u00d7";
+    li.appendChild(span);
+  }
+  inputBox.value = '';
+  saveData();
 }
 
-class MenuBar extends React.Component {
-  render() {
-    return (
-        <Menu>
-          <a id='about' className='menu-item' href='/'>About</a>
-          <a id='contact' className='menu-item' href='/'>Contact</a>
-        </Menu>
-    );
+listContainer.addEventListener("click", function(e){
+  if(e.target.tagName === "LI"){
+    e.target.classList.toggle("checked");
+    saveData() 
   }
-}
-const inputBox = document.getElementById('input-box')
-const style = StyleSheet.create({
-  container:{
-    flex: 1,
-    backgroundColor: '#f0e68c',    //ніжно-жовтий
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  button: {
-    flexDirection: 'row'
+  else if (e.target.tagName === "SPAN"){
+    e.target.parentElement.remove();
+    saveData() 
+  }
+}, false);
 
-  }
+function saveData() {
+  localStorage.setItem("data", listContainer.innerHTML);  // зберігає дані
+                                                          // у формі рядка
+}
+function showTask() {
+  listContainer.innerHTML = localStorage.getItem("data");
+}
+showTask();
+
+const aboutLink = document.getElementById('.about');
+const contactLink = document.getElementById('.contact');
+
+aboutLink.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  window.open('about.html', '_blank');
+});
+
+contactLink.addEventListener('click', function(event) {
+  event.preventDefault();
+  window.open('contact.html');
 })
 
-export default App;
+
+
